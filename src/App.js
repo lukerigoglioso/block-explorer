@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Web3 from 'web3';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+    constructor(props) {
+        super(props);
+        // Don't call this.setState() here!
+        this.state = { counter: 0 };
+        this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545')) ;
+    }
+
+    componentDidMount(){
+
+        //TODO
+
+    };
+
+
+    render() {
+
+        return (
+            <div className="container">
+                <p>${this.web3.version}</p>
+            </div>
+        );
+    }
 }
 
 export default App;
